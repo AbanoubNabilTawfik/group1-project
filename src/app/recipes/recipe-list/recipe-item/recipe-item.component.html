@@ -1,0 +1,14 @@
+<div class="row"
+ [routerLink]="[index]"
+ routerLinkActive="recipeActive"
+>
+  <div class="col-md-6">
+      <div class="card" style="width:250px">
+          <img class="card-img-top" [src]="recipe?.imagePath" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">{{recipe?.name}}</h4>
+            <p class="card-text">{{recipe?.description}}</p>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">RECIPE WEBSITE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"*ngIf="isAuthenticated">
+            <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/recipes" >Recipes</a>
+          </li>
+          <li class="nav-item" *ngIf="!isAuthenticated">
+            <a class="nav-link"routerLinkActive="active"  routerLink="/auth" >Authenticate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active"  routerLink="/shopping-list">Shopping List</a>
+          </li>
+
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" routerLinkActive="active"   (click)="onLogout()">Logout</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isAuthenticated">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" (click)="onSaveData()">Save Data</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="onFetchRecipes()">Fetch Data</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
